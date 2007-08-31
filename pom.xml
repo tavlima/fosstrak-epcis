@@ -7,7 +7,7 @@
 
   <groupId>org.accada.epcis</groupId>
   <artifactId>epcis</artifactId>
-  <version>0.2.2-SNAPSHOT</version>
+  <version>0.2.2</version>
   <packaging>pom</packaging> <!-- aggregator projects require 'pom' as packaging -->
   <modelVersion>4.0.0</modelVersion>
 
@@ -150,6 +150,11 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
+          <!-- Lock to this version in order to prevent obscure
+               ArrayIndexOutOfBoundsException during release:prepare.
+               See http://jira.codehaus.org/browse/MRELEASE-256 for
+               details on this issue. -->
+          <version>2.0-beta-4</version>
           <configuration>
             <tagBase>https://svn.accada.org/repos/epcis/tags</tagBase>
           </configuration>
@@ -201,9 +206,9 @@
   
   <scm>
     <!-- keep empty tags here to avoid release:prepare crashes -->
-    <connection></connection>
-    <developerConnection>scm:svn:https://svn.accada.org/repos/epcis</developerConnection>
-    <url></url>
+    <connection>scm:svn:https://svn.accada.org/repos/epcis/tags/epcis-0.2.2</connection>
+    <developerConnection>scm:svn:https://svn.accada.org/repos/epcis/tags/epcis-0.2.2</developerConnection>
+    <url>https://svn.accada.org/repos/epcis/tags/epcis-0.2.2</url>
   </scm>
   <distributionManagement>
     <repository>
